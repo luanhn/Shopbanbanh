@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/Admin.cshtml";
+}
+<div id="baoadmin">
+
+
+    <div id="divadmin">
+        <h2 align="center" style="color:white">Đăng nhập hệ thống Admin</h2>
+       
+         <div id="ad">
+             <span style="color:white">
+                 @ViewBag.ThongBao</span>
+                 <br />
+                 @using (Html.BeginForm())
+                 {
+                     <span style="color:white">Tên đăng nhập:</span>@Html.TextBox("txttaikhoan")<br /><br />
+                     <div id="textmk"><span style="color:white">Mật khẩu:</span>@Html.Password("txtmatkhau")</div><br />
+                     <input type="submit" value="Đăng nhập" id="btnad" style="cursor:pointer" />
+                 }
+</div>
+    </div>
+</div>
+
+
+<style>
+    
+     #textmk {
+        margin-left: 34px;
+    }
+     #ad {
+        margin-left: 30px;
+    }
+
+    #divadmin {
+        width: 400px;
+        height: 200px;
+        border: solid 1px;
+        margin: 0 auto;
+        margin-top: 100px;
+        background-color: blue;
+    }
+    #btnad {margin-left:100px;
+    }
+</style>

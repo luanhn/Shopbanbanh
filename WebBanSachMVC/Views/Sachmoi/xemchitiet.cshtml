@@ -1,0 +1,42 @@
+﻿@using WebBanSachMVC.Models;
+@model nuochoa
+@{
+    ViewBag.Title = "xemchitiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<style>
+    #btnGioHang {
+        margin-left:0px;
+    }
+    #thongtin {
+        float:right;
+        width:700px;
+        margin-right:100px;
+        margin-top:20px;
+    }
+    
+     h2 {
+        color: green;
+    }
+   
+
+</style>
+@section  noidung{
+  
+    <img src="@Url.Content("~/Hinhsanpham/" + @Model.HinhMinhHoa)" style="margin-top:20px" />
+
+    <div id="thongtin" style="border:1px dotted;height:300px;padding-left:5px;">
+      <h2>Thông tin chi tiết sách</h2>
+    <div id="ma">Mã :@Model.MaNH</div>
+    <div id="tentl">Tên thể loại: @ViewBag.TenTheLoai</div>
+    <div id="ten">Tên: @Model.TenNH</div>
+     <div >@Html.Raw( @Model.MoTa)</div>
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSP = Model.MaNH, @strURL = Request.Url.ToString() }))
+        {
+            <input type="submit" value="Mua hàng" id="btnGioHang" style="cursor:pointer" />
+        }  
+</div>
+       
+     
+      
+  }

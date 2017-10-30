@@ -1,0 +1,82 @@
+﻿@model WebBanSachMVC.Models.KhuyenMai
+
+@{
+    ViewBag.Title = "ChinhSua";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+<script src="~/tinymce/js/tinymce/jquery.tinymce.min.js"></script>
+<script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+
+
+
+
+<script>tinymce.init({ selector: 'textarea' });</script>
+<div id="page-wrapper">
+    <h2>Sửa thông tin khuyến mãi</h2>
+    @using (Html.BeginForm("ChinhSua", "QuanLyKhuyenMai", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+
+                <div class="col-md-10">
+
+                    @Html.Hidden("MaKM", Model.MaKM)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-4 control-label">Tên khuyến mãi</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TenKM, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TenKM)
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-4 control-label">Hình ảnh</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.HinhAnh, null, new { @class = "form-control" })
+                    @*ten cua the input phai trung ten voi tham so ben controller*@
+
+                    <input type="file" name="fileUp" class="form-control" />
+
+                    @*thong bao trung anh? da co roi*@
+                    @*@ViewBag.ThongBao*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-4 control-label">Nội dung</label>
+                <div class="col-md-10">
+                    <textarea name="NoiDung">@Model.NoiDung</textarea>
+                    @Html.ValidationMessageFor(model => model.NoiDung)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" /> |
+                    @Html.ActionLink("Trở về", "QLDSKhuyenMai")
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+</div>

@@ -1,0 +1,18 @@
+﻿@using WebBanSachMVC.Models;
+
+@model List<DanhsachBanh>
+          @{
+    <marquee direction="right" behavior="alternate" onmouseover="this.stop();" onmouseout="this.start()">
+        <div id="hieuung" style="width:1500px">
+
+            @foreach (var item in Model)
+            {
+                <div id="SanPham" style="float:left;width:8%;">
+                    <a href="@Url.Action("xemchitiet", "Sachmoi", new { @manh=item.MaSP })"><img src="@Url.Content("~/Hinhsanpham/" + item.HinhAnh)" /></a>
+                </div>
+            }
+
+            <div style="clear:both"></div>
+        </div>
+    </marquee>
+}

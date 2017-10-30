@@ -1,0 +1,34 @@
+﻿@using WebBanSachMVC.Models
+@model List<DanhsachBanh>
+<style>
+    .menutrai {
+        float: left;
+        width: 300px;
+    }
+    .activity-list-update a {
+        margin-left: 5px;
+        color:blue;
+    }
+</style>
+
+@{ <h1 class="item-header">Bánh mới nhất</h1>
+
+    foreach(var item in Model){
+
+
+
+
+          <div class="activity-list-update">
+              <img src="@Url.Content("~/Hinhsanpham/"+@item.HinhAnh)" width="50" height="50">
+              <p>@item.TenSP<a href="@Url.Action("xemchitiet", new {@manh=item.MaSP })">Xem chi tiet</a></p>
+              <div class="clear"></div>
+          </div>
+   
+
+
+
+  }
+<a href="#" class="item-footer green">
+    Xem thêm(Chưa làm tới)
+</a>
+}

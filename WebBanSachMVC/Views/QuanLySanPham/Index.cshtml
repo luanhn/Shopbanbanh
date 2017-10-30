@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+
+
+
+    <link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+    <link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+    <link href="~/AdminCss/morris.css" rel="stylesheet" />
+    <link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/nivoslider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/nivoslider/jquery.nivo.slider.js"></script>
+    <script src="~/nivoslider/jquery.nivo.slider.pack.js"></script>
+
+
+   
+
+
+</head>
+<body>
+
+
+    <div id="page-wrapper">
+        <h1 class="page-header" style="color:blueviolet">Chào mừng đến trang quản trị hệ thống WebSite Bán Bánh</h1>
+        <div id="slider" class="nivoslider">
+
+            <img src="~/Hinhsanpham/cookies_1.jpg" width="1000" height="400" />
+            <img src="~/Hinhsanpham/cookies_1.jpg" width="1000" height="400" />
+        </div>
+        <div style="clear:both"></div>
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                controlNav: false,
+                nextText: "",
+                prevText: "",
+            });
+        });
+    </script>
+
+ 
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/jquery.dataTables.min.js"></script>
+    <script src="~/AdminJS/dataTables.bootstrap.min.js"></script>
+    <script src="~/AdminJS/dataTables.responsive.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+
+
+</body>
+</html>

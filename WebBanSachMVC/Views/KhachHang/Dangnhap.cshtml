@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2 style="color:green">Đăng nhập hệ thống Website</h2>
+@ViewBag.ThongBao
+@using (Html.BeginForm()) { 
+    <span>Tên đăng nhập:</span><br />@Html.TextBox("txttaikhoan")<br />
+     <span>Mật khẩu:</span><br />@Html.Password("txtmatkhau")<br />
+    <input type="submit" value="Đăng nhập"/>
+}
+

@@ -1,0 +1,70 @@
+﻿@model WebBanSachMVC.Models.BaiViet
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+<div id="page-wrapper">
+    <h3>Bạn có muốn xóa bài viết này?</h3>
+
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Mã bài viết</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.MaBaiViet, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaBaiViet)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Loại</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.LoaiBaiViet, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LoaiBaiViet)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Tiêu đề</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.TieuDe, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TieuDe)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Nội dung</label>
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(model => model.MoTa, null, new { @class = "form-control" })*@
+
+            @Html.TextArea("NoiDung", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NoiDung) <br />
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+
+        <img src="@Url.Content("~/Hinhsanpham/"+Model.HinhAnh) " width="150" height="150" />
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "QLDSCacBaiViet")
+        </div>
+    }
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+</div>

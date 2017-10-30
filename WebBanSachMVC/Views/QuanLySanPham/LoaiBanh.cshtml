@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebBanSachMVC.Models.LoaiBanh>
+
+@{
+    ViewBag.Title = "LoaiBanh";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+<link href="~/AdminCss/morris.css" rel="stylesheet" />
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Danh sách loại bánh hiện có</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div id="ts" style="font-size:15px; ">
+                        <p>
+                            @Html.ActionLink("Thêm loại bánh mới", "ThemMoiLoaiBanh")
+                        </p>
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Mã loại bánh</th>
+                                <th>Tên loại</th>
+
+
+                               
+                                <th>Mô tả</th>
+                                <th>Sửa thông tin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaLoai)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenLoai)
+                                    </td>
+                                 
+                                   
+                                    <td>
+                                        @*@Html.DisplayFor(modelItem => item.MoTa)*@
+                                        @Html.Raw(item.MoTa)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Sửa", "SuaLoaiBanh", new { @MaLoai = item.MaLoai }) |
+                                        @*@Html.ActionLink("Xem chi tiết", "HienThi", new { @MaSP = item.MaSP }) |*@
+                                        @Html.ActionLink("Xóa", "XoaLoaiBanh", new { @MaLoai = item.MaLoai })
+                                    </td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/AdminJS/jquery.min.js"></script>
+<script src="~/AdminJS/bootstrap.min.js"></script>
+<script src="~/AdminJS/metisMenu.min.js"></script>
+<script src="~/AdminJS/jquery.dataTables.min.js"></script>
+<script src="~/AdminJS/dataTables.bootstrap.min.js"></script>
+<script src="~/AdminJS/dataTables.responsive.js"></script>
+<script src="~/AdminJS/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>

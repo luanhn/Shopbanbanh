@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminDangNhap</title>
+    <link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+    <link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/AdminCss/morris.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Đăng nhập hệ thống</h2>
+                    </div>
+                    <div class="panel-body">
+                      
+                            <fieldset>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        @*<h4>Đăng nhập hệ thống quản trị</h4>*@
+                                        <hr />
+                                        @Html.ValidationSummary(true)
+
+                                        <div class="form-group">
+                                           
+                                            <div class="col-md-10">
+                                                @Html.TextBox("txttaikhoan", null, new { @class = "form-control", placeholder="Tên đăng nhập" })<br />
+                                                @*@Html.ValidationMessageFor(model => model.ten)*@
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                           
+                                            <div class="col-md-10">
+                                                @Html.Password("txtmatkhau", null, new { @class = "form-control", placeholder = "Mật khẩu" })<br />
+                                                @*@Html.ValidationMessageFor(model => model.MatKhau)*@
+                                            </div>
+                                        </div>
+                                        
+
+                                        @ViewBag.ThongBao
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Đăng nhập" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <!-- Change this to a button or input when using this as a form -->
+                               
+                            </fieldset>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    
+   
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿#dt{
+    float:left;
+     margin-top:-1%;
+}
+#dangkidangnhap{float:right;
+                margin-top:-1%;
+               
+}
+#navmenu li{
+    display:inline;
+    border-right:solid 1px rgba(0,0,0,.2);
+    padding:20px;
+     -webkit-transition:all ease-out 0.4s;
+}
+#navmenu li a:hover {
+    text-decoration:none;
+    }
+    #navmenu li:hover {
+        background-color:rgba(0,0,0,.5);
+        -webkit-transition:all ease-out 0.4s;
+    }
+ul{
+    margin-left:500px;
+}
+#textboxtimkiem input{
+    height:0px;
+}
+#textboxtimkiem{float:left;
+                margin-left:30px;
+                  
+}
+#textboxtimkiem #bt {float:right;
+                    margin-top:-1%;
+                    margin-left:5px;
+  }
+#hinhanhtimkiem{float:right;
+              margin-left:0px;
+}
+#hinhanhtimkiem button{
+ height:0px;
+ 
+ background-color:#14a19a;
+ 
+}
+#hinhanhtimkiem img{
+    margin-top:-20px;
+   
+}
+#slider {
+   float:right;
+    width:800px;
+    height:360px;
+}
+#menutrai{
+    float:left;
+    width:300px;
+}
+#nxb a:hover{
+    text-decoration:none;
+}
+#nxb h2{
+    color:#4cff00;
+}
+ul li{
+   
+    position:relative;
+
+    
+}
+    ul li > ul#submenu {
+    display: none;
+	position: absolute;
+	text-align:center;
+	float: left;
+    padding-left:0px;
+    width:200px;
+    margin-top:20px;
+	    
+    }
+    ul li:hover #submenu{
+	display:block;
+    z-index:101;
+    background-color:blue;
+    height:20px;
+	}

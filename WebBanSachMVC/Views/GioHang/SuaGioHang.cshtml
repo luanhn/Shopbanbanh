@@ -1,0 +1,46 @@
+﻿@using WebBanSachMVC.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2 style="color:green">Giỏ hàng của bạn</h2>
+<table border="1">
+    <tr>
+        <td>Mã sách</td>
+
+        <td>Tên sách</td>
+
+        <td>Ảnh sách</td>
+
+        <td>Đơn giá</td>
+
+        <td>Số lượng</td>
+
+        <td>Thành tiền</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.iMaSP</td>
+
+            <td>@item.TenSP</td>
+
+            <td><img src="@Url.Content("~/Hinhsanpham/" + @item.HinhAnh)" width="50" height="50" /></td>
+
+            <td>@String.Format("{0:0,0}", @item.DonGia)VND</td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new {@iMaSP=item.iMaSP }))
+            {
+            <td>@Html.TextBox("txtSoLuong", @item.SoLuong)</td>
+           
+            <td>@String.Format("{0:0,0}", @item.ThanhTien)VND</td>
+                  <td><input type="submit"value="Cập nhật" style="cursor:pointer"/></td>
+                <td>@Html.ActionLink("Xóa", "XoaGioHang", new {@iMaSP=item.iMaSP })</td>
+            }
+           
+        </tr>
+    }
+
+</table>

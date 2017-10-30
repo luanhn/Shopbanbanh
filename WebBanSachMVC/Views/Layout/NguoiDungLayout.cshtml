@@ -1,0 +1,156 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/NguoiDungCss/fonts.css" rel="stylesheet" />
+    <link href="~/NguoiDungCss/screen.css" rel="stylesheet" />
+    <link href="~/NguoiDungCss/NguoiDung.css" rel="stylesheet" />
+    <link href="~/nivoslider/nivo-slider.css" rel="stylesheet" />
+    <link href="~/NguoiDungCss/font-awesome.css" rel="stylesheet" />
+   
+     <link href="~/nivoslider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/nivoslider/jquery.nivo.slider.js"></script>
+    <script src="~/nivoslider/jquery.nivo.slider.pack.js"></script>
+</head>
+<body>
+   
+        <section class="blank">
+
+            <div class="flash">
+                <div id="dt">(08)345 454</div>
+                <div id="dangkidangnhap">
+
+                    @Html.Action("GioHangpartial", "GioHang")
+                    @Html.ActionLink("Đăng ký", "Dangky", "KhachHang", null, htmlAttributes: new { @class = "Dangky" })
+                    @Html.ActionLink("Đăng nhập", "Dangnhap", "KhachHang", null, htmlAttributes: new { @class = "Dangnhap" })
+                </div>
+            </div>
+
+
+            <div class="flash success">
+                <div id="textboxtimkiem">
+                    @using (@Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                    {
+                        @Html.TextBox("txttimkiem", "", htmlAttributes: new { @class = "txt", @placeholder = "Nhập từ khóa cần tìm..." })
+
+
+                        <div id="hinhanhtimkiem">
+                            <button type="submit">
+                                <img src="~/Hinhsanpham/Google%20Web%20Search-28.png" />
+                            </button>
+                        </div>
+
+
+                    }
+
+                </div>
+
+                <ul id="navmenu" class="menu">
+
+                    <li><a href="@Url.Content("~/Home/index")">Trang chủ</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Hướng dẫn</a></li>
+                    <li id="navsach"><a href="#">Sản phẩm</a>
+                        
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section>
+            <div id="menutrai">
+                <div class="activity">
+                    @Html.Action("SachmoiPartial", "Sachmoi")
+                </div>
+            </div>
+            @*<div id="menutrai">
+                    <div class="activity">
+
+                        <h1 class="item-header">Recent Activity</h1>
+
+                        <div class="activity-list-update">
+                            <img src="http://lorempixel.com/50/50/" alt="Image">
+                            <p><strong>Dennis The Dude</strong> updated his <a href="#">user profile</a>.</p>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="activity-list-update">
+                            <img src="http://lorempixel.com/50/50/" alt="Image">
+                            <p><strong>Abe Kobo</strong> uploaded a new file <a href="#">new-design.png</a></p>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="activity-list-update">
+                            <img src="http://lorempixel.com/50/50/" alt="Image">
+                            <p><strong>Abe Kobo</strong> uploaded a new file <a href="#">new-design.png</a></p>
+                            <div class="clear"></div>
+                        </div>
+
+                        <a href="#" class="item-footer green">
+                            See all activity
+                        </a>
+                    </div>
+                </div>*@
+
+            <div id="slider" class="nivoslider">
+                @*<img src="~/Hinhsanpham/Anh1.png" />
+                <img src="~/Hinhsanpham/Anh2.png" />*@
+                @*<img src="~/Hinhsanpham/Anh3.png" />*@
+                <img src="~/Hinhsanpham/cookies_1.jpg" />
+                <img src="~/Hinhsanpham/specials.jpg" />
+            </div>
+            <div style="clear:both"></div>
+        </section>
+
+        <section>
+            @Html.Action("SachHieuUng", "HieuUng")
+            @RenderSection("noidung", false)
+            @RenderBody()
+            <div id="theloaisachp">
+                @Html.Action("theloaipartial", "Theloaisach")
+                @*<a href="#" class="button">This is a button</a>
+
+                    <a href="#" class="button button-submit">This is a save button</a>
+
+                    <a href="#" class="button">Button with a counter <span class="notification">22</span></a>
+
+                    <a href="#" class="button button-and-icon">
+                        <div><i class="icon-large icon-cog"></i></div>Button with an icon
+                    </a>*@
+            </div>
+
+
+
+
+
+            <hr>
+            <div id="nxb">
+                @*@Html.Action("nhaxuatbanpartial", "Nhaxuatban")*@
+            </div>
+            <div>
+                <a href="@Url.Action("Index","AdminLogin")" class="button button-buy" style="color:green">Design by Mr.Nguyên(Trang admin)</a>
+
+            </div>
+        </section>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#slider').nivoSlider({
+                    controlNav: false,
+                    nextText: "",
+                    prevText: "",
+                });
+            });
+        </script>
+    
+</body>
+</html>

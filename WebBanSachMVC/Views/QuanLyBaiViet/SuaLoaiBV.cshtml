@@ -1,0 +1,62 @@
+﻿@model WebBanSachMVC.Models.LoaiBaiViet
+
+@{
+    ViewBag.Title = "SuaLoaiBV";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+
+
+<div id="page-wrapper">
+    <h2>Sửa thông tin loại bài viết</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+
+                <div class="col-md-10">
+
+                    @Html.Hidden("MaLoaiBV", Model.MaLoaiBV)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-4 control-label">Tên loại</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TenLoaiBV, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TenLoaiBV)
+                </div>
+            </div>
+
+           
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" /> |
+                    @Html.ActionLink("Trở về", "QLDSBaiViet")
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+</div>

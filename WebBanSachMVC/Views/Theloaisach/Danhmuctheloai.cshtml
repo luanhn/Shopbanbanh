@@ -1,0 +1,23 @@
+﻿@using WebBanSachMVC.Models
+@model List<theloai>
+@{
+    ViewBag.Title = "Danhmuctheloai";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<style>
+    #theloaisachp {
+    display:none;
+    }
+
+</style>
+@{
+    foreach (var item in Model)
+    {
+
+        <a href="@Url.Action("Sachtheotheloai", new {@matheloai=item.MaTheLoai })" class="button">@item.TenTheLoai</a>
+
+    }
+  
+}
+
+

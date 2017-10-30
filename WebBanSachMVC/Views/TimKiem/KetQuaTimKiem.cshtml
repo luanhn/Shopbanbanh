@@ -1,0 +1,86 @@
+﻿@using WebBanSachMVC.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebBanSachMVC.Models.DanhsachBanh>
+
+@{
+    ViewBag.Title = "KetQuaTimKiem";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+
+
+@section noidung{
+    <style>
+        #sachtl {
+            width: 200px;
+            height: 300px;
+        }
+
+        #menuTrang li {
+            display: inline;
+        }
+
+        #trang {
+            margin-left: 540px;
+        }
+
+        #iten {
+            width: 300px;
+            margin-left: 60px;
+        }
+
+        #imaten {
+            margin-left: 40px;
+        }
+
+        #btmh {
+            margin-left: 60px;
+        }
+    </style>
+
+
+    @{
+
+        @ViewBag.ThongBao
+        <br />
+        <br />
+        int i = 0;
+
+        foreach (var item in Model)
+        {
+            i++;
+
+            <div id="SanPham" style="float:left;width:15%;margin-left:8%;border:1px dotted;margin-top:20px;">
+                <div id="imaten">
+
+
+                </div>
+                <a href="@Url.Action("xemchitiet", "Sachmoi", new {@manh=item.MaSP })"><img src="@Url.Content("~/Hinhsanpham/"+@item.HinhAnh)" /></a>
+                <div id="iten"> @item.TenSP</div>
+                <div id="btmh">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" value="Mua hàng" style="cursor:pointer" />
+                    }
+                </div>
+                <br />
+            </div>
+            if (i % 6 == 0)
+            {    <div style="clear:both"></div>
+            }
+        }
+
+
+    }
+}
+
+<div style="clear:both"></div>
+<div id="trang">
+    Trang@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="menuTrang">
+    @Html.PagedListPager(Model, Page => Url.Action("KetQuaTimKiem", new { Page = Page, @tukhoa = ViewBag.tukhoa }))
+</div>
+<div style="clear:both"></div>
+
+

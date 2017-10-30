@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WebBanSachMVC.Models.KhuyenMai>
+
+@{
+    ViewBag.Title = "QLDSKhuyenMai";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+<link href="~/AdminCss/morris.css" rel="stylesheet" />
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Danh sách chương trình khuyễn mãi hiện có</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div id="ts" style="font-size:15px; ">
+                        <p>
+                            @Html.ActionLink("Thêm khuyến mãi mới", "ThemMoi")
+                        </p>
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Mã khuyến mãi</th>
+                                <th>Tên</th>
+                                <th>Hình ảnh</th>
+                                <th>Nội dung</th>
+                                <th>Sửa thông tin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaKM)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenKM)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("xemchitiet", "Sachmoi", new {@manh=item.MaKM })"><img src="@Url.Content("~/Hinhsanpham/"+@item.HinhAnh) " width="100" height="100" /></a>
+                                    </td>
+
+                                    <td>
+                                       @Html.Raw(item.NoiDung)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.ActionLink("Sửa", "ChinhSua", new { @MaKM = item.MaKM }) |
+                                        @*@Html.ActionLink("Xem chi tiết", "HienThi", new { @MaSP = item.MaSP }) |*@
+                                        @Html.ActionLink("Xóa", "Xoa", new { @MaKM = item.MaKM })
+                                    </td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/AdminJS/jquery.min.js"></script>
+<script src="~/AdminJS/bootstrap.min.js"></script>
+<script src="~/AdminJS/metisMenu.min.js"></script>
+<script src="~/AdminJS/jquery.dataTables.min.js"></script>
+<script src="~/AdminJS/dataTables.bootstrap.min.js"></script>
+<script src="~/AdminJS/dataTables.responsive.js"></script>
+<script src="~/AdminJS/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>

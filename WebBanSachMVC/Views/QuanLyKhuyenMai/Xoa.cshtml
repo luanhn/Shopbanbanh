@@ -1,0 +1,63 @@
+﻿@model WebBanSachMVC.Models.KhuyenMai
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+<div id="page-wrapper">
+    <h3>Bạn có muốn xóa khuyến mãi này?</h3>
+
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Mã khuyến mãi</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.MaKM, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaKM)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Tên khuyến mãi</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.TenKM, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TenKM)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Mô tả</label>
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(model => model.MoTa, null, new { @class = "form-control" })*@
+
+            @Html.TextArea("NoiDung", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NoiDung) <br />
+        </div>
+    </div>
+    
+
+   
+   
+    <div class="form-group">
+
+        <img src="@Url.Content("~/Hinhsanpham/"+Model.HinhAnh) " width="150" height="150" />
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "QLDSKhuyenMai")
+        </div>
+    }
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+</div>

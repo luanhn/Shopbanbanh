@@ -1,0 +1,73 @@
+﻿@model WebBanSachMVC.Models.DanhsachBanh
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminQuanLy.cshtml";
+}
+<link href="~/AdminCss/bootstrap.min.css" rel="stylesheet" />
+<link href="~/AdminCss/metisMenu.min.css" rel="stylesheet" />
+<link href="~/AdminCss/sb-admin-2.css" rel="stylesheet" />
+
+<link href="~/AdminCss/font-awesome.min.css" rel="stylesheet" />
+<div id="page-wrapper">
+    <h3>Bạn có muốn xóa bánh này?</h3>
+
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Mã bánh</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.MaSP, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaSP)
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Tên bánh</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.TenSP, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TenSP)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Đơn giá</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DonGia, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DonGia)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Đơn vị tính</label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DonViTinh, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DonViTinh)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Mã loại </label>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.MaLoai, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaLoai)
+        </div>
+    </div>
+    <div class="form-group">
+        
+           <img src="@Url.Content("~/Hinhsanpham/"+Model.HinhAnh) " width="150" height="150" />
+        
+    </div>
+   
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "QLDSBanh")
+        </div>
+    }
+    <script src="~/AdminJS/jquery.min.js"></script>
+    <script src="~/AdminJS/bootstrap.min.js"></script>
+    <script src="~/AdminJS/metisMenu.min.js"></script>
+    <script src="~/AdminJS/sb-admin-2.js"></script>
+</div>

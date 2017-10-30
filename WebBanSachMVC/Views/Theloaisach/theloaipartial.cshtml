@@ -1,0 +1,12 @@
+﻿@using WebBanSachMVC.Models;
+@model List<LoaiBanh>
+@{
+    <h2 style="color: #0855bd; ">Thể loại sách</h2>
+    foreach (var item in Model)
+    {
+
+        <a href="@Url.Action("Sachtheotheloai", new {@matheloai=item.MaLoai })" class="button" style="width: 250px; font-size: 11pt; color: aliceblue; background-color:#0855bd; text-decoration: none">@item.TenLoai</a>
+
+    }
+    <a href="@Url.Action("Danhmuctheloai")" class="button" style="float: left; width: 250px; font-size: 11pt; color: aliceblue; background-color: #00a200; ">Thể loại khác...</a>
+}

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<WebBanSachMVC.Models.DanhsachBanh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@section noidung{
+    <style>
+        #sachtl {
+            width: 200px;
+            height: 300px;
+        }
+
+        #menuTrang li {
+            display: inline;
+        }
+
+        #menuTrang {
+            margin-top: 20px;
+        }
+
+        #trang {
+            margin-left: 540px;
+        }
+
+        #iten {
+            width: 300px;
+            margin-left: 20px;
+        }
+
+        #imaten {
+            margin-left: 40px;
+        }
+
+        #btmh {
+            margin-left: 40px;
+        }
+
+        #hinhs {
+            margin-top: 10px;
+        }
+
+        #SanPham {
+            position: relative;
+        }
+
+            #SanPham #thongtinHieuUng {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                opacity: 0;
+                transition: all ease 1.4s;
+            }
+
+            #SanPham:hover #thongtinHieuUng {
+                opacity: 1;
+                transition: all ease 2s;
+            }
+    </style>
+
+
+    @{
+
+        @ViewBag.ThongBao
+        int i = 0;
+
+        foreach (var item in Model)
+        {
+            i++;
+
+            <div id="SanPham" style="float:left;width:30%; margin-left:8%;border:1px dotted;margin-top:20px;">
+
+                <div id="hinhs"><a href="@Url.Action("xemchitiet", "Sachmoi", new {@manh=item.MaSP })"><img src="@Url.Content("~/Hinhsanpham/"+@item.HinhAnh)" height="100%" width="100%"/></a></div>
+                <div id="iten"> @item.TenSP</div>
+                <div id="btmh">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" value="Mua hàng" style="cursor:pointer" />
+                    }
+                </div>
+                <br />
+                <a href="@Url.Action("xemchitiet", "Sachmoi", new {@manh=item.MaSP })">
+                    <div id="thongtinHieuUng" style="width: 100%; background-color: whitesmoke; height: 270px">
+
+                        @item.TenSP<br />
+                        @String.Format("{0:0,0}", @item.DonGia)<span>đ</span>
+
+                    </div>
+                </a>
+            </div>
+
+
+            if (i % 4 == 0)
+            {   
+            }
+        }
+
+
+    }
+}
+
+@*
+    <div id="trang">
+        Trang@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    </div>
+*@
+@*<div style="clear:both"></div>
+    <div id="menuTrang">
+        @Html.PagedListPager(Model, Page => Url.Action("index", new { Page = Page }))
+    </div>
+    <div style="clear:both"></div>*@
+<div style="clear:both"></div>

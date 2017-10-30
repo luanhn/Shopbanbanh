@@ -1,0 +1,92 @@
+﻿@model WebBanSachMVC.Models.nuochoa
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Layout/QuanLySanPham.cshtml";
+}
+
+<h2>HienThi</h2>
+
+<div>
+    <h4>nuochoa</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonViTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @*k hien thi the? html mak hien? thi dung noi dung *@
+            @Html.Raw(Model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhMinhHoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhMinhHoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.theloai.TenTheLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNSX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nhasanxuat.TenNSX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongBan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new {@MaSP=Model.MaNH }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>
