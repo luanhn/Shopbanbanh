@@ -280,7 +280,11 @@
     <Content Include="Hinhsanpham\cookies_1.jpg" />
     <Content Include="Hinhsanpham\Google Web Search-28.png" />
     <Content Include="Hinhsanpham\imgSearch.png" />
+    <Content Include="Hinhsanpham\nemo.jpg" />
     <Content Include="Hinhsanpham\specials.jpg" />
+    <Content Include="Hinhsanpham\toystory.jpg" />
+    <Content Include="Hinhsanpham\up.jpg" />
+    <Content Include="Hinhsanpham\walle.jpg" />
     <Content Include="login admin\Preview.jpg" />
     <Content Include="login admin\Readme.txt" />
     <Content Include="login admin\xHTML\css\style.css" />
